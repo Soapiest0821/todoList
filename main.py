@@ -5,17 +5,34 @@ def add():
     entry.delete(0, tk.END)
 
 root = tk.Tk()
+root.title("Todo List")
+root.geometry("300x300")
+root.configure(bg="#ffe1f9")
 
-entry = tk.Entry(root)
-entry.pack()
+frame = tk.Frame(root,bg="#ffecfb")
+frame.pack(fill="both", padx=10, pady=5)
 
-listbox = tk.Listbox(root)
-listbox.pack()
+entry = tk.Entry(frame)
+entry.pack(expand=True)
 
-btn = tk.Button(root, text="추가",command=add)
+listbox = tk.Listbox(frame)
+listbox.pack(
+    fill="both", 
+    expand=True, 
+    padx=10, 
+    pady=10
+)
+
+btn = tk.Button(
+    frame,
+    bg="#ffecfb",
+    fg="#ff89e5",
+    text="추가",
+    activeforeground="white",
+    command=add,
+    relief="flat", 
+    bd=0
+)
 btn.pack()
 
-root.title("Todo List")
 root.mainloop()
-
-#chatgpt 확인하고 계속 만들기
