@@ -1,38 +1,10 @@
-import tkinter as tk
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget
 
-def add():
-    listbox.insert(tk.END, entry.get())
-    entry.delete(0, tk.END)
+app = QApplication(sys.argv)
+window = QWidget()
+window.resize(400, 350)
+window.move(1120, 335)
+window.show()        # 10초 = 10000ms
 
-root = tk.Tk()
-root.title("Todo List")
-root.geometry("300x300")
-root.configure(bg="#ffe1f9")
-
-frame = tk.Frame(root,bg="#ffecfb")
-frame.pack(fill="both", padx=10, pady=5)
-
-entry = tk.Entry(frame)
-entry.pack(expand=True)
-
-listbox = tk.Listbox(frame)
-listbox.pack(
-    fill="both", 
-    expand=True, 
-    padx=10, 
-    pady=10
-)
-
-btn = tk.Button(
-    frame,
-    bg="#ffecfb",
-    fg="#ff89e5",
-    text="추가",
-    activeforeground="white",
-    command=add,
-    relief="flat", 
-    bd=0
-)
-btn.pack()
-
-root.mainloop()
+sys.exit(app.exec_())
